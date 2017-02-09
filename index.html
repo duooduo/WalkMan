@@ -14,17 +14,27 @@ function fnResize(){document.getElementsByTagName('html')[0].style.fontSize = (d
 </head>
 <body>
 <div class="landscape">横屏tip</div>
-<div class="mainWrap">
-	<div class="pages">
-		<div class="page">1</div>
-		<div class="page">2</div>
-		<div class="page">3</div>
-
-		<!-- man -->
-		<div class="l_man">
-
+<div class="mainWrap l_op0">
+	<!-- page 15rem -->
+	<div class="pages slide" style="-webkit-transform: translate3d(0rem,0,0);">
+		<div class="page l_page1">
+			<a href="javascript:;" class="l_btn" id="l_btn01">GO</a>
 		</div>
+		<div class="page l_page2">2</div>
+		<div class="page l_page3">3</div>
+	</div>
+	<!-- man .l_walk .l_stand -->
+	<div class="l_man">
+		<div class="l_act l_manWalkToRight"></div>
 	</div>
 </div>
+<div class="ld_page l_op1">
+	加载中。。。
+	<p><span class="l_num1">0</span> / <span class="l_num2">100</span></p>
+</div>
+
+
+<script src="js/zepto.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
