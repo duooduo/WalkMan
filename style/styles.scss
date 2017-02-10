@@ -11,12 +11,12 @@ html,body { width: 100%; height: 100%; display: block; overflow: hidden;}
 @media screen and (orientation:landscape){
 	.landscape{ display: block!important; visibility: visible;}
 }
-.ld_page { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: #fff; font-size: rem(80);}
+.ld_page { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: #fff; font-size: 30px; z-index: 0;}
 .slide { -webkit-transition: -webkit-transform 1s linear; transition: transform  1s linear;}
-.mainWrap { display: block; width: 100%; height: 100%; overflow: hidden;}
-.pages{ height:100%; width: rem(750*3); position:relative; }
+.mainWrap { display: block; width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 10;}
+.pages{ height:100%; width: rem(750*5); position:relative; }
 .page{ height:100%; width: rem(750); float:left; overflow:hidden; position: relative;
-	&:before { content: ''; display: block; position: absolute; left: 0; top: 75%; width: 100%; height: 55%; background: #5f5450;}
+	&:before { content: ''; display: block; position: absolute; left: 0; top: 65%; width: 100%; height: 55%; background: #5f5450;}
 }
 .page>*{display:none}
 .page_show>*{display:block}
@@ -29,17 +29,19 @@ html,body { width: 100%; height: 100%; display: block; overflow: hidden;}
 .l_op1 { opacity: 1; -webkit-transition: opacity .8s ease; transition: opacity .8s ease;}
 
 //**---	 man 	---**
-.l_manBox { position: absolute; left: 50%; top: 70%; width: rem(49); height: rem(74); margin-left: rem(-25);}
-.l_man { position: absolute; left: 50%; top: 70%; width: rem(49); height: rem(74); margin-left: rem(-25);
+//.l_manBox { position: absolute; left: 50%; top: 60%; width: rem(49); height: rem(74); margin-left: rem(-25);}
+.l_man { position: absolute; left: 50%; top: 60%; width: rem(49); height: rem(74); margin-left: rem(-25);
 	// 默认姿势
-	.l_act { position: absolute; left: 0; top: 0; display: block; width: 100%; height: 100%; -webkit-transform: scale(2); transform: scale(2); @extend %l_manStand; }
-	// 行走动作
-	&.l_walk .l_act { -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite;
-		&.l_manWalkToRight { @extend %l_manWalkToRight;}
-		&.l_manWalkToLeft { @extend %l_manWalkToLeft;}
+	.l_act { position: absolute; left: 0; top: 0; display: block; width: rem(49); height: rem(74); -webkit-transform: scale(2); transform: scale(2);
+		// 行走动作
+		&.toRight { @extend %l_manWalkToRight; -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite;}
+		// 行走动作
+		&.toLeft { @extend %l_manWalkToLeft; -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite;}
+		// 站立动作
+		&.stand { @extend %l_manStand; -webkit-animation: l_manWalk 1.2s steps(3) infinite; animation: l_manWalk 1.2s steps(3) infinite;}
+		&.jump { }
+		&.holdOn { }
 	}
-	// 站立动作
-	&.l_stand .l_act { -webkit-animation: l_manWalk 1.2s steps(3) infinite; animation: l_manWalk 1.2s steps(3) infinite;}
 }
 
 @-webkit-keyframes l_manWalk {
@@ -53,16 +55,21 @@ html,body { width: 100%; height: 100%; display: block; overflow: hidden;}
 
 
 //**---	  Page	---**
-.l_page1 { background: #56807f;
+.l_page0,.l_page2,.l_page4 { background: #56807f;
 	&:before { background: rgba(95, 84, 80, 0.8);}
 }
-.l_page2 { background: #80676a;
+.l_page1,.l_page3 { background: #80676a;
 	&:before { background: rgba(74, 71, 95, 0.8);}
 }
-.l_page3 { background: #56807f;
-	&:before { background: rgba(95, 84, 80, 0.8);}
+
+
+.l_btn { z-index: 100; position: absolute; left: 50%; bottom: 15%; display: block; width: rem(80); height: rem(80); margin-left: rem(-40); border-radius: 50%; background: #ef6363; color: #fff; font-size: rem(40); line-height: rem(80); text-align: center; box-shadow: 0 0 rem(40) 0 rgba(189,40,40,.7);
+	&.l_op0 { opacity: 0; -webkit-transition: opacity .4s ease; transition: opacity .4s ease;}
+	&.gonext { display: none;}
 }
 
-
-.l_btn { z-index: 100; position: absolute; left: 50%; bottom: 10%; display: block; width: rem(80); height: rem(80); margin-left: rem(-40); border-radius: 50%; background: #ef6363; color: #fff; font-size: rem(40); line-height: rem(80); text-align: center; box-shadow: 0 0 rem(40) 0 rgba(189,40,40,.7);}
+audio:not([controls]) { display: none; height: 0; }
+#l_musicIcon { position: fixed; width: rem(75); height: rem(75); background: url(http://7xlbj9.com1.z0.glb.clouddn.com/music_icon1.png) no-repeat; background-size: rem(75) rem(150); z-index: 999; right: rem(30); top: rem(30);
+	&.mute { background-position: left bottom; }
+}
 

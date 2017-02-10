@@ -1,4 +1,4 @@
-body { font: normal 14px/1.5 "\5FAE\8F6F\96C5\9ED1", Helvetica,STHeiti, Droidsansfallback; color: #444; background-color: #fff; /*-webkit-user-select: none;*/ -webkit-text-size-adjust: none; }
+body { font: normal 14px/1.5 "\5FAE\8F6F\96C5\9ED1", Helvetica,STHeiti, Droidsansfallback; color: #444; background-color: #000; /*-webkit-user-select: none;*/ -webkit-text-size-adjust: none; }
 
 body, div, dl, dt, dd, del, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, figure { margin: 0; padding: 0; }
 
@@ -50,27 +50,27 @@ a { text-decoration: none; }
 
 .none { display: none; }
 
-.l_man.l_walk .l_act.l_manWalkToRight { background: url("../img/go_right_bottom.png") no-repeat 0 0; background-size: 1100%; }
+.l_man .l_act.toRight { background: url("../img/go_right_bottom.png") no-repeat 0 0; background-size: 1100% 100%; }
 
-.l_man.l_walk .l_act.l_manWalkToLeft { background: url("../img/go_left_bottom.png") no-repeat 0 0; background-size: 1100%; }
+.l_man .l_act.toLeft { background: url("../img/go_left_bottom.png") no-repeat 0 0; background-size: 1100% 100%; }
 
-.l_man .l_act { background: url("../img/stand.png") no-repeat 0 0; background-size: 400%; }
+.l_man .l_act.stand { background: url("../img/stand.png") no-repeat 0 0; background-size: 400% 100%; }
 
 html, body { width: 100%; height: 100%; display: block; overflow: hidden; }
 
 .landscape { visibility: hidden; position: relative; display: none; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); overflow: hidden; }
 
 @media screen and (orientation: landscape) { .landscape { display: block !important; visibility: visible; } }
-.ld_page { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: #fff; font-size: 1.6rem; }
+.ld_page { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: #fff; font-size: 30px; z-index: 0; }
 
 .slide { -webkit-transition: -webkit-transform 1s linear; transition: transform  1s linear; }
 
-.mainWrap { display: block; width: 100%; height: 100%; overflow: hidden; }
+.mainWrap { display: block; width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 10; }
 
-.pages { height: 100%; width: 45rem; position: relative; }
+.pages { height: 100%; width: 75rem; position: relative; }
 
 .page { height: 100%; width: 15rem; float: left; overflow: hidden; position: relative; }
-.page:before { content: ''; display: block; position: absolute; left: 0; top: 75%; width: 100%; height: 55%; background: #5f5450; }
+.page:before { content: ''; display: block; position: absolute; left: 0; top: 65%; width: 100%; height: 55%; background: #5f5450; }
 
 .page > * { display: none; }
 
@@ -320,26 +320,29 @@ html, body { width: 100%; height: 100%; display: block; overflow: hidden; }
 
 .l_op1 { opacity: 1; -webkit-transition: opacity .8s ease; transition: opacity .8s ease; }
 
-.l_manBox { position: absolute; left: 50%; top: 70%; width: 0.98rem; height: 1.48rem; margin-left: -0.5rem; }
-
-.l_man { position: absolute; left: 50%; top: 70%; width: 0.98rem; height: 1.48rem; margin-left: -0.5rem; }
-.l_man .l_act { position: absolute; left: 0; top: 0; display: block; width: 100%; height: 100%; -webkit-transform: scale(2); transform: scale(2); }
-.l_man.l_walk .l_act { -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite; }
-.l_man.l_stand .l_act { -webkit-animation: l_manWalk 1.2s steps(3) infinite; animation: l_manWalk 1.2s steps(3) infinite; }
+.l_man { position: absolute; left: 50%; top: 60%; width: 0.98rem; height: 1.48rem; margin-left: -0.5rem; }
+.l_man .l_act { position: absolute; left: 0; top: 0; display: block; width: 0.98rem; height: 1.48rem; -webkit-transform: scale(2); transform: scale(2); }
+.l_man .l_act.toRight { -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite; }
+.l_man .l_act.toLeft { -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite; }
+.l_man .l_act.stand { -webkit-animation: l_manWalk 1.2s steps(3) infinite; animation: l_manWalk 1.2s steps(3) infinite; }
 
 @-webkit-keyframes l_manWalk { 0% { background-position: 0; }
   100% { background-position: 100%; } }
 @keyframes l_manWalk { 0% { background-position: 0; }
   100% { background-position: 100%; } }
-.l_page1 { background: #56807f; }
-.l_page1:before { background: rgba(95, 84, 80, 0.8); }
+.l_page0, .l_page2, .l_page4 { background: #56807f; }
+.l_page0:before, .l_page2:before, .l_page4:before { background: rgba(95, 84, 80, 0.8); }
 
-.l_page2 { background: #80676a; }
-.l_page2:before { background: rgba(74, 71, 95, 0.8); }
+.l_page1, .l_page3 { background: #80676a; }
+.l_page1:before, .l_page3:before { background: rgba(74, 71, 95, 0.8); }
 
-.l_page3 { background: #56807f; }
-.l_page3:before { background: rgba(95, 84, 80, 0.8); }
+.l_btn { z-index: 100; position: absolute; left: 50%; bottom: 15%; display: block; width: 1.6rem; height: 1.6rem; margin-left: -0.8rem; border-radius: 50%; background: #ef6363; color: #fff; font-size: 0.8rem; line-height: 1.6rem; text-align: center; box-shadow: 0 0 0.8rem 0 rgba(189, 40, 40, 0.7); }
+.l_btn.l_op0 { opacity: 0; -webkit-transition: opacity .4s ease; transition: opacity .4s ease; }
+.l_btn.gonext { display: none; }
 
-.l_btn { z-index: 100; position: absolute; left: 50%; bottom: 10%; display: block; width: 1.6rem; height: 1.6rem; margin-left: -0.8rem; border-radius: 50%; background: #ef6363; color: #fff; font-size: 0.8rem; line-height: 1.6rem; text-align: center; box-shadow: 0 0 0.8rem 0 rgba(189, 40, 40, 0.7); }
+audio:not([controls]) { display: none; height: 0; }
+
+#l_musicIcon { position: fixed; width: 1.5rem; height: 1.5rem; background: url(http://7xlbj9.com1.z0.glb.clouddn.com/music_icon1.png) no-repeat; background-size: 1.5rem 3rem; z-index: 999; right: 0.6rem; top: 0.6rem; }
+#l_musicIcon.mute { background-position: left bottom; }
 
 /*# sourceMappingURL=styles.css.map */

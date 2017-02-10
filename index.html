@@ -13,24 +13,50 @@ function fnResize(){document.getElementsByTagName('html')[0].style.fontSize = (d
 <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
+<audio src="http://7xlbj9.com1.z0.glb.clouddn.com/lianjia_musicmusic.mp3" preload loop="loop" id="music"></audio>
+<a href="javascript:;" id="l_musicIcon" class=""></a>
+<script>
+
+</script>
 <div class="landscape">横屏tip</div>
-<div class="mainWrap l_op0">
+<div class="mainWrap l_op0" style="opacity: 0;">
 	<!-- page 15rem -->
-	<div class="pages slide" style="-webkit-transform: translate3d(0rem,0,0);">
-		<div class="page l_page1">
-			<a href="javascript:;" class="l_btn" id="l_btn01">GO</a>
+	<div class="pages slide" style="width: 75rem;">
+		<div class="page l_page0">
+			封面 0
+			<a href="javascript:;" class="l_btn gonext l_op0" data-goto="1">GO</a>
 		</div>
-		<div class="page l_page2">2</div>
-		<div class="page l_page3">3</div>
+		<div class="page l_page1">
+			page 1
+			<a href="javascript:;" class="l_btn gonext l_op0" data-goto="2">→</a>
+		</div>
+		<div class="page l_page2">
+			page 2
+			<a href="javascript:;" class="l_btn gonext l_op0" data-goto="3">→</a>
+		</div>
+		<div class="page l_page3">
+			page 3
+			<a href="javascript:;" class="l_btn gonext l_op0" data-goto="4">→</a>
+		</div>
+		<div class="page l_page4">
+			封底 4
+			<a href="javascript:;" class="l_btn gonext l_op0" data-goto="5">→</a>
+		</div>
 	</div>
 	<!-- man .l_walk .l_stand -->
 	<div class="l_man">
-		<div class="l_act l_manWalkToRight"></div>
+		<div class="l_act toRight"></div>
+		<div class="l_act toLeft"></div>
+		<div class="l_act stand"></div>
+		<div class="l_act jump"></div>
+		<div class="l_act holdOn"></div>
 	</div>
+	<div class="log" style="position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 10%; overflow-y: auto; word-break: break-all; color: #fff; font-size: 10px; text-align: left; line-height: 1;"></div>
 </div>
 <div class="ld_page l_op1">
 	加载中。。。
-	<p><span class="l_num1">0</span> / <span class="l_num2">100</span></p>
+	<span class="l_num1">0</span> / <span class="l_num2">100</span>
+	<!--<img src="" alt="" id="img" style="width: 200px; height: 200px; border: 1px solid red;">-->
 </div>
 
 
