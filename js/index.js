@@ -3,10 +3,8 @@
  */
 'use strict';
 !function () {
-	// todo 例子：http://www.w3cmark.com/2016/434.html
-
-
-	// todo 例子：http://huodong.lianjia.com/newicon/?from=groupmessage&isappinstalled=0
+	// 例子：http://www.w3cmark.com/2016/434.html
+	// 例子：http://huodong.lianjia.com/newicon/?from=groupmessage&isappinstalled=0
 
 	// 图片加载
 	function loadImages(pics, callback, len){
@@ -133,7 +131,6 @@
 		init: function () {
 			this.bg.init(0);
 			this.man.init('stand');
-			// this.man.init('toRight');
 		},
 		goToNext: function (n, t, fnS, fnE) {
 			var This = this;
@@ -155,6 +152,15 @@
 			return n;
 		}
 	};
+	// init audio
+	function initAudio(cl) {
+		var obj = $('#'+cl).get(0);
+		if(iswx || isip){
+			obj.play();
+			obj.pause();
+		}
+		return obj;
+	}
 
 
 	//---* run
@@ -169,6 +175,11 @@
 		document.addEventListener( 'touchstart' , stopScrolling , false );
 		document.addEventListener( 'touchmove' , stopScrolling , false );
 	}
+	// 音频预加载
+	var an2 = initAudio('au2');
+	var an3 = initAudio('au3');
+	var an4 = initAudio('au4');
+	var an5 = initAudio('au5');
 	// 图片预加载
 	var picLength = 3;
 	loadImages([
@@ -179,18 +190,6 @@
 		log('iswx :'+iswx);
 		log('isip :'+isip);
 		log('isan :'+isan);
-
-		// 音频预加载
-		if(iswx || isip){
-			$("#au2")[0].play();
-			$("#au3")[0].play();
-			$("#au4")[0].play();
-			$("#au5")[0].play();
-			$("#au2")[0].pause();
-			$("#au3")[0].pause();
-			$("#au4")[0].pause();
-			$("#au5")[0].pause();
-		}
 
 		// 开始page1
 		setTimeout(function(){
@@ -233,22 +232,22 @@
 			switch(n){
 				case "1":
 					// 1
-					$("#au2")[0].play();
+					an2.play();
 
 					break;
 				case "2":
 					// 2
-					$("#au3")[0].play();
+					an3.play();
 
 					break;
 				case "3":
 					// 3
-					$("#au4")[0].play();
+					an4.play();
 
 					break;
 				default:
 					// 去封底
-					$("#au5")[0].play();
+					an5.play();
 			}
 		},function(n){
 			var This = sliceObj;
