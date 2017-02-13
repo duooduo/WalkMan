@@ -4,42 +4,9 @@
 'use strict';
 !function () {
 	// todo 例子：http://www.w3cmark.com/2016/434.html
-	//原来是在微信易信执行Ready之前，先注册事件，所以放在所有请求的最前面
-	document.addEventListener("WeixinJSBridgeReady", function () {
-		audioAutoPlay('music');//给个全局函数
-	}, false);
-	document.addEventListener('YixinJSBridgeReady', function() {
-		audioAutoPlay('music');//给个全局函数
-	}, false);
-	// 全局控制播放函数
-	function audioAutoPlay(id){
-		var audio = document.getElementById(id),
-			play = function(){
-				audio.play();
-				document.removeEventListener("touchstart",play, false);
-			};
-		audio.play();
-		document.addEventListener("touchstart",play, false);
-	}
-	var isAppInside=/micromessenger/i.test(navigator.userAgent.toLowerCase())||/yixin/i.test(navigator.userAgent.toLowerCase());
-	// 非微信易信浏览器
-	if(!isAppInside){
-		audioAutoPlay('music');
-	}
+
 
 	// todo 例子：http://huodong.lianjia.com/newicon/?from=groupmessage&isappinstalled=0
-	var music = document.getElementById("music");
-	music.play();
-	$("#l_musicIcon").on("click touchend",function(){
-		var music = document.getElementById("music");
-		if($(this).hasClass("mute")){
-			music.play();
-			$(this).removeClass("mute");
-		}else{
-			music.pause();
-			$(this).addClass("mute");
-		}
-	});
 
 	// 图片加载
 	function loadImages(pics, callback, len){
@@ -220,6 +187,17 @@
 	sliceObj.init();
 
 	// bind
+	$("#l_musicIcon").on("click touchend",function(){
+		var music = document.getElementById("music");
+		if($(this).hasClass("mute")){
+			music.play();
+			$(this).removeClass("mute");
+		}else{
+			music.pause();
+			$(this).addClass("mute");
+		}
+	});
+
 	$('.l_btn.gonext').on('touchend click', function () {
 		var x = this.dataset.goto;
 		var $btn = $(this);

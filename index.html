@@ -4,20 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
 <meta name="format-detection" content="telephone=no"/>
-<title>walk man</title>
+<title>WalkMan</title>
 <script>
-fnResize();var k = null;
-window.addEventListener("resize",function(){clearTimeout(k);k = setTimeout(fnResize,300);},false);
-function fnResize(){document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth) / 15 + 'px';}
+	fnResize();var k = null;
+	window.addEventListener("resize",function(){clearTimeout(k);k = setTimeout(fnResize,300);},false);
+	function fnResize(){document.getElementsByTagName('html')[0].style.fontSize = (document.documentElement.clientWidth) / 15 + 'px';}
+	// 微信Ready之前，先注册事件，所以放在所有请求的最前面
+	document.addEventListener("WeixinJSBridgeReady", function () {
+		audioAutoPlay('music');//给个全局函数
+	}, false);
 </script>
 <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-<audio src="img/music.mp3" preload loop="loop" id="music"></audio>
-<a href="javascript:;" id="l_musicIcon" class=""></a>
+<!--<audio src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload="auto" loop="loop" id="music"></audio>-->
+<!--<audio src="http://7xlbj9.com1.z0.glb.clouddn.com/lianjia_musicmusic.mp3" preload="auto" loop="loop" id="music"></audio>-->
+<audio src="img/bg.mp3" preload="auto" loop="loop" autoplay id="music"></audio>
 <script>
-
+	// 全局控制播放函数
+	function audioAutoPlay(id){
+		var audio = document.getElementById(id);
+		audio.play();
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			audio.play();
+		}, false);
+	}
+	audioAutoPlay('music');
 </script>
+<a href="javascript:;" id="l_musicIcon" class=""></a>
 <div class="landscape">横屏tip</div>
 <div class="mainWrap l_op0" style="opacity: 0;">
 	<!-- page 15rem -->
@@ -59,7 +73,7 @@ function fnResize(){document.getElementsByTagName('html')[0].style.fontSize = (d
 	<!--<img src="" alt="" id="img" style="width: 200px; height: 200px; border: 1px solid red;">-->
 </div>
 
-
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="js/zepto.min.js"></script>
 <script src="js/index.js"></script>
 </body>
