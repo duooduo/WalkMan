@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
-<meta name="format-detection" content="telephone=no"/>
-<title>WalkMan</title>
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+<title>乐里奥房事历险记</title>
+<meta name="keywords" content="乐里奥房事历险记">
+<meta name="description" content="乐里奥房事历险记">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!--for baidu 识别移动端页面并禁止百度转码-->
+<meta name="applicable-device" content="mobile">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 <script>
 	fnResize();var k = null;
 	window.addEventListener("resize",function(){clearTimeout(k);k = setTimeout(fnResize,300);},false);
@@ -81,9 +89,17 @@
 	加载中。。。
 	<span class="l_num1">0</span> / <span class="l_num2">100</span>
 </div>
-
-<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<!-- script -->
 <script src="js/zepto.min.js"></script>
 <script src="js/index.js"></script>
+<script src="http://m.leju.com/resources/scripts/wx_share.js?v1.1"></script>
+<script type="text/javascript">
+weixinApi.share.init({
+	title:"乐里奥房事历险记",
+	desc:"乐里奥房事历险记",
+	link:"",
+	imgUrl:""
+});
+</script>
 </body>
 </html>
