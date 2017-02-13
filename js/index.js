@@ -158,20 +158,41 @@
 
 
 	//---* run
-	var picLength = 3;
 	// 禁止橡皮筋
-	var ua = navigator.userAgent.toLowerCase();
 	function stopScrolling( touchEvent ) {touchEvent.preventDefault();}
-	if(/iphone|ipad|ipod/.test(ua)) {
+	var ua = navigator.userAgent.toLowerCase(),
+		iswx = /micromessenger/i.test(ua),
+		isip = /iphone os/i.test(ua) || /ipad/i.test(ua) || /iphone|ipad|ipod/.test(ua),
+		isan = /android/i.test(ua);
+
+	if(isip) {
 		document.addEventListener( 'touchstart' , stopScrolling , false );
 		document.addEventListener( 'touchmove' , stopScrolling , false );
 	}
 	// 图片预加载
+	var picLength = 3;
 	loadImages([
 		"/walk/img/go_right_bottom.png",
 		"/walk/img/go_left_bottom.png",
 		"/walk/img/stand.png"
 	], function(){
+		log('iswx :'+iswx);
+		log('isip :'+isip);
+		log('isan :'+isan);
+
+		// 音频预加载
+		if(iswx || isip){
+			$("#au2")[0].play();
+			$("#au3")[0].play();
+			$("#au4")[0].play();
+			$("#au5")[0].play();
+			$("#au2")[0].pause();
+			$("#au3")[0].pause();
+			$("#au4")[0].pause();
+			$("#au5")[0].pause();
+		}
+
+		// 开始page1
 		setTimeout(function(){
 			$(".ld_page").css({'opacity': '0'});
 			$(".mainWrap").css({'opacity': '1'});
@@ -179,7 +200,7 @@
 				'opacity': '1',
 				'display': 'block'
 			});
-		},30);
+		},300);
 	});
 
 	// 初始化
@@ -198,6 +219,7 @@
 		}
 	});
 
+
 	$('.l_btn.gonext').on('touchend click', function () {
 		var x = this.dataset.goto;
 		var $btn = $(this);
@@ -211,15 +233,22 @@
 			switch(n){
 				case "1":
 					// 1
+					$("#au2")[0].play();
+
 					break;
 				case "2":
 					// 2
+					$("#au3")[0].play();
+
 					break;
 				case "3":
 					// 3
+					$("#au4")[0].play();
+
 					break;
 				default:
-					// 封底
+					// 去封底
+					$("#au5")[0].play();
 			}
 		},function(n){
 			var This = sliceObj;
@@ -233,6 +262,7 @@
 						'color':   '#000',
 						'display': 'block'
 					});
+					This.man.toJump();
 					break;
 				case "2":
 					// 动作2
@@ -253,6 +283,7 @@
 				default:
 					// 封底
 					log('封底动作');
+
 			}
 		});
 		return false;

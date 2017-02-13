@@ -54,6 +54,8 @@ a { text-decoration: none; }
 
 .l_man .l_act.toLeft { background: url("../img/go_left_bottom.png") no-repeat 0 0; background-size: 1100% 100%; }
 
+.l_man .l_act.jump { background: url("../img/go_top.png") no-repeat 0 0; background-size: 1000% 100%; }
+
 .l_man .l_act.stand { background: url("../img/stand.png") no-repeat 0 0; background-size: 400% 100%; }
 
 html, body { width: 100%; height: 100%; display: block; overflow: hidden; }
@@ -325,11 +327,15 @@ html, body { width: 100%; height: 100%; display: block; overflow: hidden; }
 .l_man .l_act.toRight { -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite; }
 .l_man .l_act.toLeft { -webkit-animation: l_manWalk 1s steps(10) infinite; animation: l_manWalk 1s steps(10) infinite; }
 .l_man .l_act.stand { -webkit-animation: l_manWalk 1.2s steps(3) infinite; animation: l_manWalk 1.2s steps(3) infinite; }
+.l_man .l_act.jump { -webkit-animation: l_manJump 0.8s steps(9) forwards; animation: l_manJump 0.8s steps(9) forwards; }
 
 @-webkit-keyframes l_manWalk { 0% { background-position: 0; }
   100% { background-position: 100%; } }
 @keyframes l_manWalk { 0% { background-position: 0; }
   100% { background-position: 100%; } }
+@-webkit-keyframes l_manJump { 0% { -webkit-transform: translate3d(0, 0, 0) scale(2); background-position: 0; }
+  50% { -webkit-transform: translate3d(0, -100%, 0) scale(2); }
+  100% { -webkit-transform: translate3d(0, 0, 0) scale(2); background-position: 100%; } }
 .l_page0, .l_page2, .l_page4 { background: #56807f; }
 .l_page0:before, .l_page2:before, .l_page4:before { background: rgba(95, 84, 80, 0.8); }
 

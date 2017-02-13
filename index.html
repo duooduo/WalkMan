@@ -17,24 +17,33 @@
 <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-<!--<audio src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload="auto" loop="loop" id="music"></audio>-->
-<!--<audio src="http://7xlbj9.com1.z0.glb.clouddn.com/lianjia_musicmusic.mp3" preload="auto" loop="loop" id="music"></audio>-->
-<audio src="img/bg.mp3" preload="auto" loop="loop" autoplay id="music"></audio>
-<script>
-	// 全局控制播放函数
-	function audioAutoPlay(id){
-		var audio = document.getElementById(id);
-		audio.play();
-		document.addEventListener("WeixinJSBridgeReady", function () {
+<!-- 音频 -->
+<div class="l_audioBox">
+	<!--<audio src="http://game.163.com/weixin/gfxm3_gc/images/bg.mp3" preload="auto" loop="loop" id="music"></audio>-->
+	<!--<audio src="http://7xlbj9.com1.z0.glb.clouddn.com/lianjia_musicmusic.mp3" preload="auto" loop="loop" id="music"></audio>-->
+	<audio src="mp3/au1.mp3" type="audio/mp3" preload="auto" loop="loop" autoplay id="music"></audio>
+	<audio src="mp3/au2.mp3" type="audio/mp3" id="au2"></audio>
+	<audio src="mp3/au3.mp3" type="audio/mp3" id="au3"></audio>
+	<audio src="mp3/au4.mp3" type="audio/mp3" id="au4"></audio>
+	<audio src="mp3/au5.mp3" type="audio/mp3" id="au5"></audio>
+	<script>
+		// 全局控制播放函数
+		function audioAutoPlay(id){
+			var audio = document.getElementById(id);
 			audio.play();
-		}, false);
-	}
-	audioAutoPlay('music');
-</script>
-<a href="javascript:;" id="l_musicIcon" class=""></a>
+			document.addEventListener("WeixinJSBridgeReady", function () {
+				audio.play();
+			}, false);
+		}
+		audioAutoPlay('music');
+	</script>
+	<a href="javascript:;" id="l_musicIcon" class=""></a>
+</div>
+<!-- 横屏 -->
 <div class="landscape">横屏tip</div>
+<!-- main -->
 <div class="mainWrap l_op0" style="opacity: 0;">
-	<!-- page 15rem -->
+	<!-- 场景 page 15rem -->
 	<div class="pages slide" style="width: 75rem;">
 		<div class="page l_page0">
 			封面 0
@@ -57,7 +66,7 @@
 			<a href="javascript:;" class="l_btn gonext l_op0" data-goto="5">→</a>
 		</div>
 	</div>
-	<!-- man .l_walk .l_stand -->
+	<!-- 人物 man .l_walk .l_stand -->
 	<div class="l_man">
 		<div class="l_act toRight"></div>
 		<div class="l_act toLeft"></div>
@@ -67,13 +76,13 @@
 	</div>
 	<div class="log" style="position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 10%; overflow-y: auto; word-break: break-all; color: #fff; font-size: 10px; text-align: left; line-height: 1;"></div>
 </div>
+<!-- loading -->
 <div class="ld_page l_op1">
 	加载中。。。
 	<span class="l_num1">0</span> / <span class="l_num2">100</span>
-	<!--<img src="" alt="" id="img" style="width: 200px; height: 200px; border: 1px solid red;">-->
 </div>
 
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
 <script src="js/zepto.min.js"></script>
 <script src="js/index.js"></script>
 </body>
